@@ -11,10 +11,10 @@ public class Enemy : GameBehaviour
     public static event Action<GameObject> OnEnemyDie = null;
 
     public PatrolType myPatrol;
-    float baseSpeed = 1f;
+    //float baseSpeed = 1f;
     public float mySpeed = 1f;
 
-    int baseHealth = 100;
+   // int baseHealth = 100;
     int maxHealth;
     public int myHealth;
     public int myScore;
