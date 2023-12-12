@@ -15,7 +15,6 @@ public enum PatrolType
 public class EnemyManager : Singleton<EnemyManager>
 {
     public Transform[] patrolPoints;
-    public List<GameObject> enemies;
 
     /// <summary>
     /// Kills a specific enemy
@@ -23,10 +22,7 @@ public class EnemyManager : Singleton<EnemyManager>
     /// <param name="_enemy"> The enemy we want to kill</param>
     public void KillEnemy(GameObject _enemy)
     {
-        if (enemies.Count == 0)
-            return;
-
-        enemies.Remove(_enemy);
+        Destroy(_enemy);
     }
 
     /// <summary>

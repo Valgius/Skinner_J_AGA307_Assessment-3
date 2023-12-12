@@ -26,11 +26,13 @@ public class Inventory : GameBehaviour
 
         if (isPaused)
         {
+            Cursor.lockState = CursorLockMode.None;
             pausePanel.SetActive(true);
             Time.timeScale = 0;
         }
         else
         {
+            Cursor.lockState = CursorLockMode.Locked;
             pausePanel.SetActive(false);
             Time.timeScale = 1;
         }

@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditorInternal.Profiling.Memory.Experimental.FileFormat;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -11,10 +10,10 @@ public class Enemy : GameBehaviour
     public static event Action<GameObject> OnEnemyDie = null;
 
     public PatrolType myPatrol;
-    //float baseSpeed = 1f;
     public float mySpeed = 1f;
+    public float currentSpeed;
 
-   // int baseHealth = 100;
+    int baseHealth = 100;
     int maxHealth;
     public int myHealth;
     public int myScore;
@@ -51,6 +50,7 @@ public class Enemy : GameBehaviour
     void ChangeSpeed(float _speed)
     {
         agent.speed = _speed;
+        currentSpeed = _speed;
     }
 
     private void Update()
@@ -70,7 +70,7 @@ public class Enemy : GameBehaviour
         }
 
         //Set the animators speed parameter to that of this objects speed.
-        anim.SetFloat("Speed", mySpeed);
+        anim.SetFloat("Speed", currentSpeed);
 
         //Switching patrol states logic
         switch (myPatrol)
@@ -87,7 +87,7 @@ public class Enemy : GameBehaviour
             case PatrolType.Detect:
                 //Set the destination to this object, essentially stopping it
                 agent.SetDestination(transform.position);
-                //Stop out speed
+                //Stop our speed
                 ChangeSpeed(0);
                 //Decrement our detect time
                 detectTime -= Time.deltaTime;
@@ -106,7 +106,7 @@ public class Enemy : GameBehaviour
                 //Set the destination to that of the player
                 agent.SetDestination(_PLAYER.transform.position);
                 //increase the speed of which to chase the player
-                ChangeSpeed(mySpeed * 2);
+                ChangeSpeed(2);
                 //If the player gets outside the detect distance, go back to the detect state.
                 if (distToPlayer > detectDistance)
                     myPatrol = PatrolType.Detect; //single line If statements don't need brackets
