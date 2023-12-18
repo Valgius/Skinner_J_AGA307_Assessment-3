@@ -46,7 +46,7 @@ public class Inventory : ScriptableObject
     /// </summary>
     public void AssignItem(InventoryItem item)
     {
-        Debug.Log(string.Format("Player assigned (0) item", item.GetName()));
+        item.AssignItemToPlayer(playerEquipment); 
     }
 
     public Dictionary<InventoryItem, int> GetAllItemsMap()

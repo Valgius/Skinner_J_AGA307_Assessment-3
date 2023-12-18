@@ -13,8 +13,6 @@ MonoBehaviour:
   m_Name: Inventory
   m_EditorClassIdentifier: 
   items:
-  - item: {fileID: 11400000, guid: 3498a2320532d3648a343a5efa41ed5a, type: 2}
-    count: 1
-  - item: {fileID: 11400000, guid: 805a877c481740444951bdbd4cc2aefd, type: 2}
+  - item: {fileID: 11400000, guid: f1953245f9086f946846f8e02dc3f868, type: 2}
     count: 1
   inventoryUIPrefab: {fileID: 1214112006061908466, guid: 8559a960061266d458768e55569fc825, type: 3}
