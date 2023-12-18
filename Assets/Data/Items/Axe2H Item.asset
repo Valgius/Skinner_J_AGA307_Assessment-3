@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2f1e8de6ee8a13a4dbb3dffb459e325e, type: 3}
-  m_Name: Axe Item
+  m_Name: Axe2H Item
   m_EditorClassIdentifier: 
-  itemPrefab: {fileID: 2999748106215116, guid: a9de5a98f016a334c9a1113e07b1a12f, type: 3}
-  itemSprite: {fileID: 21300000, guid: 562c8ffdd7002424789bba4aebc7f288, type: 3}
-  itemName: Axe
-  itemLocalPosition: {x: -0.033, y: 0.008, z: -0.021}
+  itemPrefab: {fileID: 5409340933053809108, guid: 90785c74b47617741aa5d3792af17448, type: 3}
+  itemSprite: {fileID: 21300000, guid: bf757655b7c6b014bbbdfab1a546652b, type: 3}
+  itemName: Axe 2H
+  itemLocalPosition: {x: -0.033, y: 0.174, z: -0.021}
   itemLocalRotation: {x: 0, y: 0, z: 0}
-  hand: 1
+  hand: 2

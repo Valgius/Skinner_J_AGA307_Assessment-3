@@ -38,7 +38,12 @@ public class PlayerEquipmentController : MonoBehaviour
                 break;
             case Hand.RIGHT:
                 DestroyIfNotNull(currentRightHandObj);
-                currentLeftHandObj = CreateNewItemInstance(item, rightHandAnchor);
+                currentRightHandObj = CreateNewItemInstance(item, rightHandAnchor);
+                break;
+            case Hand.TWOHAND:
+                DestroyIfNotNull(currentRightHandObj);
+                DestroyIfNotNull(currentLeftHandObj);
+                currentRightHandObj = CreateNewItemInstance(item, rightHandAnchor);
                 break;
             default:
                 break;

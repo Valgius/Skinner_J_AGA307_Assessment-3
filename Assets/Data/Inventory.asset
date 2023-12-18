@@ -15,4 +15,12 @@ MonoBehaviour:
   items:
   - item: {fileID: 11400000, guid: f1953245f9086f946846f8e02dc3f868, type: 2}
     count: 1
+  - item: {fileID: 11400000, guid: d5ac648e586a7ef4cb454e3a81ae23da, type: 2}
+    count: 1
+  - item: {fileID: 11400000, guid: da3418ceb815e3b419edc519b79061a5, type: 2}
+    count: 1
+  - item: {fileID: 11400000, guid: 186c7dfb8d7a7c345bc07129bd3c8911, type: 2}
+    count: 1
+  - item: {fileID: 11400000, guid: 76f9cbcc05016294397fa28d35287d7c, type: 2}
+    count: 1
   inventoryUIPrefab: {fileID: 1214112006061908466, guid: 8559a960061266d458768e55569fc825, type: 3}

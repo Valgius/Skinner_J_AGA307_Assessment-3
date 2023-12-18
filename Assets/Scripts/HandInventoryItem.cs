@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum Hand { LEFT, RIGHT}
+public enum Hand { LEFT, RIGHT, TWOHAND}
 
 [CreateAssetMenu(menuName = "Scriptable objects/Inventory System/Items/Hand Item")]
 
