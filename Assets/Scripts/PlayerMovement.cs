@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Progress;
 
 public class PlayerMovement : Singleton<PlayerMovement>
 {
@@ -116,9 +115,22 @@ public class PlayerMovement : Singleton<PlayerMovement>
     {
         anim.SetLayerWeight(anim.GetLayerIndex("Attack Layer"), 1);
 
-        anim.SetTrigger("Attack1H");
+        if (_PEC.weaponType == "1H")
+        {
+            anim.SetTrigger("Attack1H");
+            yield return new WaitForSeconds(1f);
+        }
+        if (_PEC.weaponType == "2H")
+        {
+            anim.SetTrigger("Attack2H");
+            yield return new WaitForSeconds(1.5f);
+        }
+        if (_PEC.weaponType == "Unarmed")
+        {
+            anim.SetTrigger("Unarmed");
+            yield return new WaitForSeconds(1f);
+        }
 
-        yield return new WaitForSeconds(0.9f);
         anim.SetLayerWeight(anim.GetLayerIndex("Attack Layer"), 0);
     }
 

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class PlayerEquipmentController : GameBehaviour
+public class PlayerEquipmentController : Singleton<PlayerEquipmentController>
 {
     [SerializeField] private Inventory inventory;
     [SerializeField] private Transform inventoryUIParent;
@@ -15,11 +15,14 @@ public class PlayerEquipmentController : GameBehaviour
     private GameObject currentLeftHandObj;
     private GameObject currentRightHandObj;
     private GameObject currentArmourObj;
+    public string weaponType;
+   
 
     private void Start()
     {
         inventory.InitInventory(this);
         inventory.OpenInventoryUI();
+        weaponType = "Unarmed";
     }
 
     public void AssignArmourItem (ArmourInventoryItem item)
@@ -39,11 +42,13 @@ public class PlayerEquipmentController : GameBehaviour
             case Hand.RIGHT:
                 DestroyIfNotNull(currentRightHandObj);
                 currentRightHandObj = CreateNewItemInstance(item, rightHandAnchor);
+                weaponType = "1H";
                 break;
             case Hand.TWOHAND:
                 DestroyIfNotNull(currentRightHandObj);
                 DestroyIfNotNull(currentLeftHandObj);
                 currentRightHandObj = CreateNewItemInstance(item, rightHandAnchor);
+                weaponType = "2H";
                 break;
             default:
                 break;

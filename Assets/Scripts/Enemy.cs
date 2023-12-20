@@ -24,7 +24,7 @@ public class Enemy : GameBehaviour
     Transform startPos;             //Needed for loop patrol movement
     Transform endPos;               //Needed for loop patrol movement
     bool reverse;                   //Needed for loop patrol movement
-    public float attackDistance = 2;
+    public float attackDistance = 1;
     public float detectTime = 5f;
     public float detectDistance = 10f;
     int currentWaypoint;
@@ -36,6 +36,10 @@ public class Enemy : GameBehaviour
     {
         anim = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
+
+        myHealth = maxHealth = baseHealth;
+        myPatrol = PatrolType.Patrol;
+        myDamage = 20;
 
         SetupAI();
     }
