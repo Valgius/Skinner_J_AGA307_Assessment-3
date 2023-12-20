@@ -31,6 +31,10 @@ public class PlayerEquipmentController : Singleton<PlayerEquipmentController>
         currentArmourObj = CreateNewItemInstance(item, armourAnchor);
     }
 
+    /// <summary>
+    /// Destroys any exixitng weapon at hand anchor and replaces it with a new one.
+    /// </summary>
+    /// <param name="item">weapon pulled from inventory item script</param>
     public void AssignHandItem(HandInventoryItem item)
     {
         switch (item.hand)
@@ -55,6 +59,7 @@ public class PlayerEquipmentController : Singleton<PlayerEquipmentController>
         }
     }
 
+    ///Creates a prefab at specified postition and rotation.
     private GameObject CreateNewItemInstance(InventoryItem item, Transform anchor)
     {
         var itemInstance = Instantiate(item.GetPrefab(), anchor);
@@ -62,6 +67,8 @@ public class PlayerEquipmentController : Singleton<PlayerEquipmentController>
         itemInstance.transform.localRotation = item.GetLocalRotation();
         return itemInstance;
     }
+
+    ///Destroys item already present in slot
     private void DestroyIfNotNull(GameObject obj)
     {
         if (obj)

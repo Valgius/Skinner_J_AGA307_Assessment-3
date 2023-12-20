@@ -142,6 +142,7 @@ public class PlayerMovement : Singleton<PlayerMovement>
     public void Hit(int _damage)
     {
         health -= _damage;
+        anim.SetTrigger("Hit");
         //_AM.PlaySound(_AM.GetEnemyHitSound(), audioSource);
 
         if (health < 0)

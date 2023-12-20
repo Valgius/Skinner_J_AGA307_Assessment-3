@@ -17,7 +17,6 @@ public class Enemy : GameBehaviour
     int maxHealth;
     public int myHealth;
     public int myScore;
-    public int myDamage = 20;
 
     [Header("AI")]
     public Transform moveToPos;     //Needed for all patrols
@@ -39,7 +38,6 @@ public class Enemy : GameBehaviour
 
         myHealth = maxHealth = baseHealth;
         myPatrol = PatrolType.Patrol;
-        myDamage = 20;
 
         SetupAI();
     }
@@ -131,7 +129,7 @@ public class Enemy : GameBehaviour
         myPatrol = PatrolType.Chase;
     }
 
-    void Hit(int _damage)
+    public void Hit(int _damage)
     {
         myHealth -= _damage;
 
@@ -141,7 +139,6 @@ public class Enemy : GameBehaviour
         }
         else
         {
-            int rnd = UnityEngine.Random.Range(1, 4);
             PlayAnimation("Hit");
             OnEnemyHit?.Invoke(this.gameObject);
         }

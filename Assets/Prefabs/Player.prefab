@@ -2198,6 +2198,7 @@ GameObject:
   - component: {fileID: 3190778735865550151}
   - component: {fileID: 6786017204858628931}
   - component: {fileID: 6786017204858628930}
+  - component: {fileID: 5200125888423453396}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -2302,6 +2303,25 @@ MonoBehaviour:
   groundCheck: {fileID: 1936606557318351220}
   jumpHeight: 2
   health: 100
+--- !u!114 &5200125888423453396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6786017204858628942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b6574d57607cce41bf85135f9f3023e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dontDestroy: 0
+  inventory: {fileID: 11400000, guid: 99d7b1d4582b33543a3c39c8d15bc505, type: 2}
+  inventoryUIParent: {fileID: 0}
+  leftHandAnchor: {fileID: 6786017205315914485}
+  rightHandAnchor: {fileID: 6786017204304639051}
+  armourAnchor: {fileID: 6786017204531318072}
+  weaponType: 
 --- !u!1 &6786017204905739229
 GameObject:
   m_ObjectHideFlags: 0
