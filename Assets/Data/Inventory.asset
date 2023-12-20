@@ -23,4 +23,10 @@ MonoBehaviour:
     count: 1
   - item: {fileID: 11400000, guid: 76f9cbcc05016294397fa28d35287d7c, type: 2}
     count: 1
+  - item: {fileID: 11400000, guid: b233b7994db2c2d448dd46cd7c4d1a11, type: 2}
+    count: 1
+  - item: {fileID: 11400000, guid: 8e1073f405689d048a37964eec530a20, type: 2}
+    count: 1
+  - item: {fileID: 11400000, guid: dcbbd3a394d1f674da4fc4a6a7a611ba, type: 2}
+    count: 1
   inventoryUIPrefab: {fileID: 1214112006061908466, guid: 8559a960061266d458768e55569fc825, type: 3}

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class PlayerMovement : Singleton<PlayerMovement>
 {
@@ -107,16 +108,35 @@ public class PlayerMovement : Singleton<PlayerMovement>
 
     private void Jump()
     {
-        velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+        anim.SetTrigger("Jump");
+        velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);;
     }
 
     private IEnumerator Attack()
     {
         anim.SetLayerWeight(anim.GetLayerIndex("Attack Layer"), 1);
-        anim.SetTrigger("Attack");
+
+        anim.SetTrigger("Attack1H");
 
         yield return new WaitForSeconds(0.9f);
         anim.SetLayerWeight(anim.GetLayerIndex("Attack Layer"), 0);
     }
 
+    private void Block()
+    {
+        anim.SetTrigger("Block");
+    }
+
+    public void Hit(int _damage)
+    {
+        health -= _damage;
+        //_AM.PlaySound(_AM.GetEnemyHitSound(), audioSource);
+
+        if (health < 0)
+        {
+            _GM.gameState = GameState.GameOver;
+            //_AM.PlaySound(_AM.GetEnemyDieSound(), audioSource);
+        }
+
+    }
 }

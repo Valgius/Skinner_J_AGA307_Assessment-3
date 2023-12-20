@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemPrefab: {fileID: 5996680578629692151, guid: a71d1f9b3c3dfdf4f8190625852fd277, type: 3}
   itemSprite: {fileID: 21300000, guid: 095ee71f8fca28a42bd6eca2623ac1e1, type: 3}
-  itemName: Axe
+  itemName: Shield
   itemLocalPosition: {x: -0.016, y: -0.277, z: -0.033}
   itemLocalRotation: {x: -179.411, y: 4.369995, z: -1.220001}
   hand: 0

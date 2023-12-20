@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class PlayerEquipmentController : MonoBehaviour
+public class PlayerEquipmentController : GameBehaviour
 {
     [SerializeField] private Inventory inventory;
     [SerializeField] private Transform inventoryUIParent;
