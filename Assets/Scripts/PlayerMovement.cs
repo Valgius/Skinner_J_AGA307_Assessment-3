@@ -20,7 +20,10 @@ public class PlayerMovement : Singleton<PlayerMovement>
 
     public float jumpHeight;
 
-    public float health = 100;
+    int baseHealth = 100;
+    int maxHealth;
+    public int myHealth;
+    HealthBar healthbar;
 
     private CharacterController controller;
     private Animator anim;
@@ -30,6 +33,8 @@ public class PlayerMovement : Singleton<PlayerMovement>
     {
         controller = GetComponent<CharacterController>();
         anim = GetComponent<Animator>();
+        healthbar = GetComponentInChildren<HealthBar>();
+        myHealth = maxHealth = baseHealth;
     }
 
     private void Update()
@@ -115,9 +120,11 @@ public class PlayerMovement : Singleton<PlayerMovement>
     {
         anim.SetLayerWeight(anim.GetLayerIndex("Attack Layer"), 1);
 
+
         if (_PEC.weaponType == "1H")
         {
             anim.SetTrigger("Attack1H");
+
             yield return new WaitForSeconds(1f);
         }
         if (_PEC.weaponType == "2H")
@@ -141,14 +148,14 @@ public class PlayerMovement : Singleton<PlayerMovement>
 
     public void Hit(int _damage)
     {
-        health -= _damage;
+        myHealth -= _damage;
+        healthbar.UpdateHealthBar(myHealth, maxHealth);
         anim.SetTrigger("Hit");
-        //_AM.PlaySound(_AM.GetEnemyHitSound(), audioSource);
 
-        if (health < 0)
+        if (myHealth < 0)
         {
             _GM.gameState = GameState.GameOver;
-            //_AM.PlaySound(_AM.GetEnemyDieSound(), audioSource);
+            _UI.EndGame();
         }
 
     }

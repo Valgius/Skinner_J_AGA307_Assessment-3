@@ -27,6 +27,9 @@ public class Pause : GameBehaviour
         }
     }
 
+/// <summary>
+/// Pauses the game
+/// </summary>
     public void TogglePause()
     {
         isPaused = !isPaused;
@@ -45,6 +48,7 @@ public class Pause : GameBehaviour
         }
     }
 
+    ///Pauses the game, Opens the inventory
     public void ToggleInventory()
     {
         isPaused = !isPaused;

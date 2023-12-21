@@ -11,22 +11,22 @@ public class PlayerWeapon : GameBehaviour
     public int damage;
     public WeaponType myWeapon;
 
+
     void Start()
     {
         DamageCal();
     }
 
-    //Checks to see if item has collided with enemy.
+    ///Checks to see if item has collided with enemy.
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Enemy"))
         {
-            print ("hit Enemy"); 
             other.GetComponent<Enemy>().Hit(damage);
         }
     }
 
-    //Holds the damage vaules for wepons.
+    ///Holds the damage vaules for weapons.
     private void DamageCal()
     {
         switch (myWeapon)

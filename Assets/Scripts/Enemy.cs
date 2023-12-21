@@ -16,7 +16,7 @@ public class Enemy : GameBehaviour
     int baseHealth = 100;
     int maxHealth;
     public int myHealth;
-    public int myScore;
+    HealthBar healthbar;
 
     [Header("AI")]
     public Transform moveToPos;     //Needed for all patrols
@@ -35,6 +35,7 @@ public class Enemy : GameBehaviour
     {
         anim = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
+        healthbar = GetComponentInChildren<HealthBar>();
 
         myHealth = maxHealth = baseHealth;
         myPatrol = PatrolType.Patrol;
@@ -139,6 +140,7 @@ public class Enemy : GameBehaviour
         }
         else
         {
+            healthbar.UpdateHealthBar(myHealth, maxHealth);
             PlayAnimation("Hit");
             OnEnemyHit?.Invoke(this.gameObject);
         }

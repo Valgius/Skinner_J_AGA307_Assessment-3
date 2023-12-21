@@ -15,6 +15,7 @@ public enum PatrolType
 public class EnemyManager : Singleton<EnemyManager>
 {
     public Transform[] patrolPoints;
+    public List<GameObject> enemies;
 
     /// <summary>
     /// Kills a specific enemy
@@ -22,6 +23,8 @@ public class EnemyManager : Singleton<EnemyManager>
     /// <param name="_enemy"> The enemy we want to kill</param>
     public void KillEnemy(GameObject _enemy)
     {
+        enemies.Remove(_enemy);
+        ShowEnemyCount();
         Destroy(_enemy);
     }
 
@@ -32,6 +35,14 @@ public class EnemyManager : Singleton<EnemyManager>
     public Transform GetRandomSpawnPoint()
     {
         return patrolPoints[Random.Range(0, patrolPoints.Length)];
+    }
+
+    /// <summary>
+    /// Updates enemy count in UI
+    /// </summary>
+    void ShowEnemyCount()
+    {
+        _UI.UpdateEnemyCount(enemies.Count);
     }
 
     private void OnEnable()

@@ -98,6 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0
+  myWeapon: 0
 --- !u!65 &8658628432111667984
 BoxCollider:
   m_ObjectHideFlags: 0
