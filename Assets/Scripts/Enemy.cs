@@ -30,11 +30,13 @@ public class Enemy : GameBehaviour
     NavMeshAgent agent;
 
     Animator anim;
+    AudioSource audioSource;
 
     private void Start()
     {
         anim = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
+        audioSource = GetComponent<AudioSource>();
         healthbar = GetComponentInChildren<HealthBar>();
 
         myHealth = maxHealth = baseHealth;
@@ -125,6 +127,7 @@ public class Enemy : GameBehaviour
         myPatrol = PatrolType.Attack;
         ChangeSpeed(0);
         PlayAnimation("Attack");
+        _AM.PlaySound(_AM.GetAttackSound(), audioSource);
         yield return new WaitForSeconds(1);
         ChangeSpeed(mySpeed);
         myPatrol = PatrolType.Chase;
@@ -143,6 +146,7 @@ public class Enemy : GameBehaviour
             healthbar.UpdateHealthBar(myHealth, maxHealth);
             PlayAnimation("Hit");
             OnEnemyHit?.Invoke(this.gameObject);
+            _AM.PlaySound(_AM.GetHitSound(), audioSource);
         }
     }
 
@@ -154,6 +158,12 @@ public class Enemy : GameBehaviour
         PlayAnimation("Die");
         StopAllCoroutines();
         OnEnemyDie?.Invoke(this.gameObject);
+        _AM.PlaySound(_AM.GetDieSound(), audioSource);
+    }
+
+    public void PlayFootstep()
+    {
+        _AM.PlaySound(_AM.GetFootstepsSound(), audioSource, 0.1f);
     }
 
     void PlayAnimation(string _animationName)

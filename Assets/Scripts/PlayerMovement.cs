@@ -27,12 +27,18 @@ public class PlayerMovement : Singleton<PlayerMovement>
 
     private CharacterController controller;
     private Animator anim;
+   
+    AudioSource audioSource;
+    public float stepRate = 0.5f;
+    float stepCooldown;
+    public AudioClip footstep;
 
 
     private void Start()
     {
         controller = GetComponent<CharacterController>();
         anim = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
         healthbar = GetComponentInChildren<HealthBar>();
         myHealth = maxHealth = baseHealth;
     }
@@ -44,6 +50,14 @@ public class PlayerMovement : Singleton<PlayerMovement>
         if(Input.GetKeyDown(KeyCode.Mouse0))
         {
             StartCoroutine(Attack());
+        }
+
+        //Footstep Audio Stuff
+        stepCooldown -= Time.deltaTime;
+        if (stepCooldown < 0 && isGrounded)
+        {
+            stepCooldown = stepRate;
+            _AM.PlaySound(footstep, audioSource);
         }
 
     }
@@ -138,6 +152,7 @@ public class PlayerMovement : Singleton<PlayerMovement>
             yield return new WaitForSeconds(1f);
         }
 
+        _AM.PlaySound(_AM.GetAttackSound(), audioSource);
         anim.SetLayerWeight(anim.GetLayerIndex("Attack Layer"), 0);
     }
 
@@ -151,10 +166,11 @@ public class PlayerMovement : Singleton<PlayerMovement>
         myHealth -= _damage;
         healthbar.UpdateHealthBar(myHealth, maxHealth);
         anim.SetTrigger("Hit");
+        _AM.PlaySound(_AM.GetHitSound(), audioSource);
 
         if (myHealth < 0)
         {
-            _GM.gameState = GameState.GameOver;
+            _AM.PlaySound(_AM.GetDieSound(), audioSource);
             _UI.EndGame();
         }
 
