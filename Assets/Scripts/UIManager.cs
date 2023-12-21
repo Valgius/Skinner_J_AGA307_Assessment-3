@@ -12,7 +12,7 @@ public class UIManager : Singleton<UIManager>
 
     private void Start()
     {
-        UpdateEnemyCount(0);
+        UpdateEnemyCount(5);
 
         //Turn on our In Game Panel
         inGamePanel.SetActive(true);

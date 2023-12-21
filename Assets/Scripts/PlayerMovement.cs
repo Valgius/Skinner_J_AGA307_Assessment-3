@@ -20,7 +20,7 @@ public class PlayerMovement : Singleton<PlayerMovement>
 
     public float jumpHeight;
 
-    int baseHealth = 100;
+    int baseHealth = 500;
     int maxHealth;
     public int myHealth;
     HealthBar healthbar;
